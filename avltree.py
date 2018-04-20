@@ -1,3 +1,5 @@
+
+
 class avlnode(object):
     """
     A node in an avl tree.
@@ -246,13 +248,17 @@ class avltree(object):
 
         if node.right.node:
             self.display(node.right.node, level + 1)
-            print ('\t' * level), ('    /')
+            print ('\t' * level, end="")
+            print ('    /')
 
-        print ('\t' * level), node
+        print ('\t' * level, end="")
+        print(node)
 
         if node.left.node:
-            print ('\t' * level), ('    \\')
+            print ('\t' * level, end="")
+            print ('    \\')
             self.display(node.left.node, level + 1)
+
     def print_tree(self):
         if(self.node == None):
             return
@@ -271,11 +277,10 @@ if __name__ == "__main__":
     tree = avltree()
     data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-    from random import randrange
     for key in data:
         tree.insert(key)
-    tree.print_tree()
-        
+
+    tree.display()
     #for key in [4,3]:
     #   tree.delete(key)
         
